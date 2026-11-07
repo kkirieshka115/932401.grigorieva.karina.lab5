@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О себе | Григорьева Карина</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h2, h3 {
+            color: var(--accent-color);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Григорьева Карина</h1>
+        <p>Персональная страница: Учёный и исследователь</p>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#about">О себе</a></li>
+                <li><a href="#hypotheses">Гипотезы</a></li>
+                <li><a href="#methods">Методы</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="theme-controls">
+            <button id="themeToggle" type="button">Переключить тему</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="about">
+            <h2>О себе</h2>
+            <img src="assets/images/photo.jpg" alt="Фото Григорьевой Карины" width="150" height="150">
+            <p>Студентка группы 932401. Увлекаюсь астрономией и изучением Вселенной.</p>
+        </section>
+
+        <section id="hypotheses">
+            <h2>Гипотезы исследования</h2>
+            <div class="hypotheses-controls">
+                <button id="addHypothesisBtn" type="button">Добавить гипотезу</button>
+                <button id="toggleHypothesesBtn" type="button">Скрыть гипотезы</button>
+            </div>
+            <div id="hypothesesContainer" class="hypotheses-grid">
+                <article class="hypothesis-card">
+                    <h3>Гипотеза обитаемости</h3>
+                    <p>В зонах обитаемости звёзд спектрального класса K существуют планеты с условиями, пригодными для жизни.</p>
+                    <span class="status confirmed">Статус: подтверждается</span>
+                    <button class="change-status" type="button">Изменить статус</button>
+                </article>
+                <article class="hypothesis-card">
+                    <h3>Гипотеза эволюции скоплений</h3>
+                    <p>Шаровые скопления Млечного Пути формировались в несколько этапов, а не единовременно.</p>
+                    <span class="status in-progress">Статус: в процессе</span>
+                    <button class="change-status" type="button">Изменить статус</button>
+                </article>
+                <article class="hypothesis-card">
+                    <h3>Гипотеза солнечного влияния</h3>
+                    <p>Циклы солнечной активности напрямую влияют на интенсивность космического излучения вблизи Земли.</p>
+                    <span class="status confirmed">Статус: подтверждается</span>
+                    <button class="change-status" type="button">Изменить статус</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="methods">
+            <h2>Методы исследования</h2>
+            <div class="methods-grid">
+                <article class="method-card">
+                    <div class="method-icon" aria-hidden="true">&#128301;</div>
+                    <h3>Наблюдательный метод</h3>
+                    <p>Регистрация и анализ электромагнитного излучения космических объектов.</p>
+                    <details>
+                        <summary>Полное описание</summary>
+                        <p>Использование оптических и радио телескопов для сбора данных о звёздах, галактиках и других объектах. Включает фотометрию, спектроскопию и астрометрию.</p>
+                    </details>
+                </article>
+                <article class="method-card">
+                    <div class="method-icon" aria-hidden="true">&#128202;</div>
+                    <h3>Статистический анализ</h3>
+                    <p>Обработка больших массивов астрономических данных для выявления зависимостей.</p>
+                    <details>
+                        <summary>Полное описание</summary>
+                        <p>Применение методов математической статистики и машинного обучения к данным каталогов Gaia и SDSS. Позволяет классифицировать объекты и строить прогностические модели.</p>
+                    </details>
+                </article>
+                <article class="method-card">
+                    <div class="method-icon" aria-hidden="true">&#129514;</div>
+                    <h3>Моделирование</h3>
+                    <p>Компьютерное моделирование физических процессов в космических объектах.</p>
+                    <details>
+                        <summary>Полное описание</summary>
+                        <p>Создание численных моделей звёздной эволюции, динамики галактик и распространения космических лучей. Модели проверяются путём сравнения с наблюдательными данными.</p>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Проекты</h2>
+            <ol class="projects-list">
+                <li class="project-card">
+                    <span class="card-label">Гипотеза 1</span>
+                    <strong>Исследование экзопланет в зоне обитаемости</strong>
+                    <p>Анализ данных с космического телескопа для поиска планет, пригодных для жизни.</p>
+                </li>
+                <li class="project-card">
+                    <span class="card-label">Гипотеза 2</span>
+                    <strong>Наблюдение за звёздными скоплениями</strong>
+                    <p>Определение возраста и эволюции шаровых скоплений Млечного Пути.</p>
+                </li>
+                <li class="project-card">
+                    <span class="card-label">Гипотеза 3</span>
+                    <strong>Анализ космического излучения</strong>
+                    <p>Изучение влияния солнечной активности на космические лучи.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section id="contact">
+            <h2>Обратная связь</h2>
+            <form action="#" method="post" style="opacity: 0.9;">
+                <p>
+                    <label for="name">Имя:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+                </p>
+                <p>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
+                </p>
+                <p>
+                    <label for="message">Сообщение:</label><br>
+                    <textarea id="message" name="message" rows="4" placeholder="Введите ваше сообщение..." required></textarea>
+                </p>
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+
+        <aside>
+            <h3>Область науки</h3>
+            <p><strong>Астрономия</strong></p>
+            <p>Меня вдохновляет изучение Вселенной, тайны чёрных дыр и поиск ответов на вопросы о происхождении космоса.</p>
+            <p>Подробнее: <a href="https://ru.wikipedia.org/wiki/Астрономия" target="_blank">Астрономия на Википедии</a></p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Григорьева Карина | <a href="https://github.com/kkirieshka115/932401.grigorieva.karina.lab5">Репозиторий на GitHub</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
