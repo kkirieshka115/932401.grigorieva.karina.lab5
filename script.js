@@ -74,6 +74,15 @@ function createHypothesisCard(hypothesis, index) {
     });
     article.appendChild(changeBtn);
 
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'change-status delete-btn';
+    deleteBtn.type = 'button';
+    deleteBtn.textContent = 'Удалить';
+    deleteBtn.addEventListener('click', function() {
+        deleteHypothesis(index);
+    });
+    article.appendChild(deleteBtn);
+
     return article;
 }
 
@@ -105,6 +114,23 @@ function changeStatus(index) {
     const nextIndex = (currentIndex + 1) % statusOrder.length;
     hypotheses[index].status = statusOrder[nextIndex];
 
+    saveHypotheses(hypotheses);
+    renderHypotheses();
+}
+
+function deleteHypothesis(index) {
+    const hypotheses = getHypotheses();
+    if (index < 0 || index >= hypotheses.length) {
+        console.error('Неверный индекс гипотезы для удаления:', index);
+        return;
+    }
+
+    const confirmDelete = confirm('Удалить гипотезу "' + hypotheses[index].title + '"?');
+    if (!confirmDelete) {
+        return;
+    }
+
+    hypotheses.splice(index, 1);
     saveHypotheses(hypotheses);
     renderHypotheses();
 }
@@ -198,4 +224,3 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Кнопка скрытия гипотез не найдена');
     }
 });
-
