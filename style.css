@@ -233,6 +233,15 @@ body.dark-theme .hypothesis-card {
     padding: 4px 10px;
     font-size: 12px;
     margin: 0;
+    margin-right: 5px;
+}
+
+.change-status.delete-btn {
+    background-color: #c62828;
+}
+
+.change-status.delete-btn:hover {
+    background-color: #e53935;
 }
 
 .methods-grid {
@@ -420,4 +429,3 @@ body.dark-theme footer {
         margin: 0 auto 15px auto;
     }
 }
-
