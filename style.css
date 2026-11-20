@@ -4,8 +4,7 @@
     --text-color: #1a3a5c;
     --border-color: #b3d9ff;
     --font-main: Arial, sans-serif;
-    --status-confirmed: #2e7d32;
-    --status-progress: #f57c00;
+    --status-checked: #2e7d32;
     --status-unchecked: #757575;
 }
 
@@ -217,12 +216,8 @@ body.dark-theme .hypothesis-card {
     margin-right: 10px;
 }
 
-.status.confirmed {
-    background-color: var(--status-confirmed);
-}
-
-.status.in-progress {
-    background-color: var(--status-progress);
+.status.checked {
+    background-color: var(--status-checked);
 }
 
 .status.unchecked {
