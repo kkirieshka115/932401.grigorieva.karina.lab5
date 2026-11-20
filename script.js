@@ -85,7 +85,7 @@ function createHypothesisCard(hypothesis, index) {
 }
 
 function renderHypotheses() {
-    const container = document.getElementById('hypothesesContainer');
+    const container = document.querySelector('#hypothesesContainer');
     if (!container) {
         console.error('Контейнер гипотез не найден');
         return;
@@ -104,8 +104,12 @@ function renderHypotheses() {
 
     const firstCard = document.querySelector('.hypothesis-card');
     if (firstCard) {
-        console.log('Первая гипотеза:', firstCard.querySelector('h3').textContent);
+        const title = firstCard.querySelector('h3').textContent;
+        console.log('Первая гипотеза:', title);
     }
+
+    const allStatusBtns = document.querySelectorAll('.change-status:not(.delete-btn)');
+    console.log('Кнопок изменения статуса:', allStatusBtns.length);
 }
 
 function changeStatus(index) {
@@ -166,8 +170,8 @@ function addHypothesis() {
 }
 
 function toggleHypothesesSection() {
-    const container = document.getElementById('hypothesesContainer');
-    const button = document.getElementById('toggleHypothesesBtn');
+    const container = document.querySelector('#hypothesesContainer');
+    const button = document.querySelector('#toggleHypothesesBtn');
 
     if (!container || !button) {
         console.error('Элементы для скрытия не найдены');
@@ -209,32 +213,24 @@ document.addEventListener('DOMContentLoaded', function() {
     loadTheme();
     renderHypotheses();
 
-    const themeBtn = document.getElementById('themeToggle');
+    const themeBtn = document.querySelector('#themeToggle');
     if (themeBtn) {
         themeBtn.addEventListener('click', toggleTheme);
     } else {
         console.error('Кнопка переключения темы не найдена');
     }
 
-    const addBtn = document.getElementById('addHypothesisBtn');
+    const addBtn = document.querySelector('#addHypothesisBtn');
     if (addBtn) {
         addBtn.addEventListener('click', addHypothesis);
     } else {
         console.error('Кнопка добавления гипотезы не найдена');
     }
 
-    const toggleBtn = document.getElementById('toggleHypothesesBtn');
+    const toggleBtn = document.querySelector('#toggleHypothesesBtn');
     if (toggleBtn) {
         toggleBtn.addEventListener('click', toggleHypothesesSection);
     } else {
         console.error('Кнопка скрытия гипотез не найдена');
-    }
-
-    const allStatusButtons = document.querySelectorAll('.change-status:not(.delete-btn)');
-    console.log('Кнопок изменения статуса:', allStatusButtons.length);
-
-    const firstStatusBtn = document.querySelector('.change-status');
-    if (firstStatusBtn) {
-        console.log('Текст первой кнопки статуса:', firstStatusBtn.textContent);
     }
 });
