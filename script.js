@@ -5,27 +5,26 @@ const defaultHypotheses = [
     {
         title: 'Гипотеза обитаемости',
         text: 'В зонах обитаемости звёзд спектрального класса K существуют планеты с условиями, пригодными для жизни.',
-        status: 'confirmed'
+        status: 'checked'
     },
     {
         title: 'Гипотеза эволюции скоплений',
         text: 'Шаровые скопления Млечного Пути формировались в несколько этапов, а не единовременно.',
-        status: 'in-progress'
+        status: 'unchecked'
     },
     {
         title: 'Гипотеза солнечного влияния',
         text: 'Циклы солнечной активности напрямую влияют на интенсивность космического излучения вблизи Земли.',
-        status: 'confirmed'
+        status: 'checked'
     }
 ];
 
 const statusLabels = {
-    'confirmed': 'Статус: подтверждается',
-    'in-progress': 'Статус: в процессе',
+    'checked': 'Статус: проверена',
     'unchecked': 'Статус: не проверена'
 };
 
-const statusOrder = ['unchecked', 'in-progress', 'confirmed'];
+const statusOrder = ['unchecked', 'checked'];
 
 function getHypotheses() {
     try {
@@ -50,7 +49,6 @@ function saveHypotheses(hypotheses) {
 function createHypothesisCard(hypothesis, index) {
     const article = document.createElement('article');
     article.className = 'hypothesis-card';
-    article.dataset.index = index;
 
     const h3 = document.createElement('h3');
     h3.textContent = hypothesis.title;
@@ -100,6 +98,14 @@ function renderHypotheses() {
         const card = createHypothesisCard(hypothesis, index);
         container.appendChild(card);
     });
+
+    const allCards = document.querySelectorAll('.hypothesis-card');
+    console.log('Всего карточек гипотез:', allCards.length);
+
+    const firstCard = document.querySelector('.hypothesis-card');
+    if (firstCard) {
+        console.log('Первая гипотеза:', firstCard.querySelector('h3').textContent);
+    }
 }
 
 function changeStatus(index) {
@@ -222,5 +228,13 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleBtn.addEventListener('click', toggleHypothesesSection);
     } else {
         console.error('Кнопка скрытия гипотез не найдена');
+    }
+
+    const allStatusButtons = document.querySelectorAll('.change-status:not(.delete-btn)');
+    console.log('Кнопок изменения статуса:', allStatusButtons.length);
+
+    const firstStatusBtn = document.querySelector('.change-status');
+    if (firstStatusBtn) {
+        console.log('Текст первой кнопки статуса:', firstStatusBtn.textContent);
     }
 });
